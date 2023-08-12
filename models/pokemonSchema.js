@@ -1,8 +1,8 @@
-const item = require('./item');
+const pokemon = require('./pokemon');
 
 const Schema = require('mongoose').Schema;
 
-const itemSchema = new Schema({
+const pokemonSchema = new Schema({
   name: { type: String, required: true },
   img: String,
   type: [{ type: Schema.Types.ObjectId, ref: 'Type' }],
@@ -11,4 +11,4 @@ const itemSchema = new Schema({
   timestamps: true
 });
 
-module.exports = itemSchema;
+module.exports = pokemonSchema;

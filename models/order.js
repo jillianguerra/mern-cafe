@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const itemSchema = require('./itemSchema');
+const pokemonSchema = require('./pokemonSchema');
 
 const lineItemSchema = new Schema({
   qty: { type: Number, default: 1 },
-  item: itemSchema
+  pokemon: pokemonSchema
 }, {
   timestamps: true,
   toJSON: { virtuals: true }
@@ -12,7 +12,7 @@ const lineItemSchema = new Schema({
 
 lineItemSchema.virtual('extPrice').get(function() {
   // 'this' is bound to the lineItem subdoc
-  return this.qty * this.item.price;
+  return this.qty * this.pokemon.price;
 });
 
 const orderSchema = new Schema({

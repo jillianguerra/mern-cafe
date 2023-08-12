@@ -1,13 +1,13 @@
 require('dotenv').config();
 require('./database');
 
-const Category = require('../models/type');
-const Item = require('../models/item');
+const Type = require('../models/type');
+const Pokemon = require('../models/pokemon');
 
 (async function() {
 
-  await Category.deleteMany({});
-  const types = await Category.create([
+  await Type.deleteMany({});
+  const types = await Type.create([
     {name: 'Normal', sortOrder: 10}, // 0
     {name: 'Fire', sortOrder: 20}, // 1
     {name: 'Water', sortOrder: 30}, // 2
@@ -28,8 +28,8 @@ const Item = require('../models/item');
     {name: 'Fairy', sortOrder: 180}, // 17
   ]);
 
-  await Item.deleteMany({});
-  const items = await Item.create([
+  await Pokemon.deleteMany({});
+  const pokemons = await Pokemon.create([
     {name: 'Bulbasaur', img: 'https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/70px-0001Bulbasaur.png', type: [types[3], types[7]], price: 100},
     {name: 'Charmander', img: 'https://archives.bulbagarden.net/media/upload/thumb/2/27/0004Charmander.png/70px-0004Charmander.png', type: [types[1]], price: 100},
     {name: 'Squirtle', img: 'https://archives.bulbagarden.net/media/upload/thumb/5/54/0007Squirtle.png/70px-0007Squirtle.png', type: [types[2]], price: 100},
@@ -94,11 +94,17 @@ const Item = require('../models/item');
     {name: 'Omanyte', img: 'https://archives.bulbagarden.net/media/upload/thumb/e/e6/0138Omanyte.png/70px-0138Omanyte.png', type: [types[2], types[12]], price: 50},
     {name: 'Kabuto', img: 'https://archives.bulbagarden.net/media/upload/thumb/d/d2/0140Kabuto.png/70px-0140Kabuto.png', type: [types[2], types[12]], price: 10},
     {name: 'Snorlax', img: 'https://archives.bulbagarden.net/media/upload/thumb/3/3f/0143Snorlax.png/70px-0143Snorlax.png', type: [types[0]], price: 3000},
-
   ]);
 
-  console.log(items)
-
+  // updates = await Type.find({})
+  // pokemons.forEach((pokemon) => {
+  //   pokemon.type.forEach((t) => {
+  //    const update = updates.find((el) => el.name === t.name)
+  //    update.pokemon ? update.pokemon.addToSet(pokemon) : update.pokemon = [pokemon]
+  //   })
+  // })
+  // await updates.save()
+  console.log(pokemons)
   process.exit();
 
 })();

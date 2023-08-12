@@ -3,8 +3,7 @@ import styles from './Logo.module.scss';
 export default function Logo() {
 return (
   <div className={styles.Logo}>
-    <div>POKE</div>
-    <div>STORE</div>
+  <img src="https://i.imgur.com/sagHe8d.png"/>
   </div>
 );
 }

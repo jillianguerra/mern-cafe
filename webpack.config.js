@@ -73,6 +73,6 @@ module.exports = env => {
 			},
 			usedExports: true,
 			sideEffects: true
-		}
+		},
 	};
 };

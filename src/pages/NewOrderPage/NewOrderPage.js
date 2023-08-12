@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import * as itemsAPI from '../../utilities/items-api';
+import * as pokemonAPI from '../../utilities/pokemon-api';
 import * as ordersAPI from '../../utilities/orders-api';
 import styles from './NewOrderPage.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
@@ -37,18 +37,31 @@ export default function NewOrderPage({ user, setUser }) {
 
   useEffect(function() {
     async function getPokemons() {
-      const pokes = await itemsAPI.getAll();
-      typesRef.current = pokes.reduce((types, poke) => {
-        const type = poke.type.name;
-        return types.includes(type) ? types : [...types, type];
-      }, []);
-      setPokemons(pokes);
-      setActiveType(typesRef.current[0]);
+      const data = await pokemonAPI.getAll();
+      console.log(data)
+      typesRef.current = data.reduce((types, poke) => {
+        const type = poke.type[0].name
+        return types.includes(type) ? types : [...types, type]
+      }, [])
+      setPokemons(data)
+      setActiveType(typesRef.current[0])
+
+      // async function getItems() {
+      //       const items = await itemsAPI.getAll();
+      //       categoriesRef.current = items.reduce((cats, item) => {
+      //         const cat = item.category.name;
+      //         return cats.includes(cat) ? cats : [...cats, cat];
+      //       }, []);
+      //       setMenuItems(items);
+      //       setActiveCat(categoriesRef.current[0]);
+      //     }
+      //     getItems();
     }
     getPokemons();
     async function getCart() {
       const cart = await ordersAPI.getCart();
       setCart(cart);
+      
     }
     getCart();
   }, []);
