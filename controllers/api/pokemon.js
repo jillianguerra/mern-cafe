@@ -19,7 +19,7 @@ async function index(req, res) {
 async function showTypes(req, res) {
   try {
     const types = await Type.find({})
-    res.status(200).json({types: types})
+    res.status(200).json(types)
   }catch(error){
     res.status(400).json({message: error.message})
   }
