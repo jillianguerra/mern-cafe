@@ -36,26 +36,41 @@ export default function NewOrderPage({ user, setUser }) {
 //   const navigate = useNavigate();
 
   useEffect(function() {
-    async function getPokemons() {
-      const data = await pokemonAPI.getAll();
-      console.log(data)
-      typesRef.current = data.reduce((types, poke) => {
-        const type = poke.type[0].name
-        return types.includes(type) ? types : [...types, type]
-      }, [])
-      setPokemons(data)
-      setActiveType(typesRef.current[0])
+    // async function getPokemons() {
+    //   const data = await pokemonAPI.getAll();
+    //   console.log(data)
+    //   typesRef.current = data.reduce((types, poke) => {
+    //     const type = poke.type.name
+    //     return types.includes(type) ? types : [...types, type]
+    //   }, [])
+    //   setPokemons(data)
+    //   setActiveType(typesRef.current[0])
 
-      // async function getItems() {
-      //       const items = await itemsAPI.getAll();
-      //       categoriesRef.current = items.reduce((cats, item) => {
-      //         const cat = item.category.name;
-      //         return cats.includes(cat) ? cats : [...cats, cat];
-      //       }, []);
-      //       setMenuItems(items);
-      //       setActiveCat(categoriesRef.current[0]);
-      //     }
-      //     getItems();
+    //   // async function getItems() {
+    //   //       const items = await itemsAPI.getAll();
+    //   //       categoriesRef.current = items.reduce((cats, item) => {
+    //   //         const cat = item.category.name;
+    //   //         return cats.includes(cat) ? cats : [...cats, cat];
+    //   //       }, []);
+    //   //       setMenuItems(items);
+    //   //       setActiveCat(categoriesRef.current[0]);
+    //   //     }
+    //   //     getItems();
+    // }
+    async function getTypes(){
+      const types = await pokemonAPI.getAllTypes()
+      const justNames = []
+      typesRef.current = types.forEach((type) => {
+        justNames.push(type.name)
+    }, [])
+      typesRef.current = justNames
+      setActiveType(typesRef.current[0])
+    }
+    getTypes()
+    async function getPokemons(){
+      const type = activeType.name
+      const data = await pokemonAPI.getByType(type)
+      setPokemons(data)
     }
     getPokemons();
     async function getCart() {
@@ -130,7 +145,7 @@ export default function NewOrderPage({ user, setUser }) {
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       <MenuList
-        pokemons={pokemons.filter(poke => poke.types.find(activeType) === activeType)}
+        pokemons={pokemons}
         handleAddToOrder={handleAddToOrder}
       />
       <OrderDetail

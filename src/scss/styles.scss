@@ -1,12 +1,12 @@
 :root {
     --white: #FFFFFF;
-    --tan-1: #FBF9F6;
-    --tan-2: #E7E2DD;
-    --tan-3: #E2D9D1;
-    --tan-4: #D3C1AE;
-    --orange: #F67F00;
-    --text-light: #968c84;
-    --text-dark: #615954;
+    --blue: #1847D7;
+    --light-blue: #30A7D7;
+    --red: #E3350D;
+    --yellow: #E6BC2F;
+    --orange: #EE6B2F;
+    --text-light: #919191;
+    --text-dark: #000000;
   }
 
   *, *:before, *:after {
@@ -18,7 +18,7 @@
     font-family: 'Work Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--tan-4);
+    background-color: var(--yellow);
     padding: 2vmin;
     height: 100vh;
   }
@@ -66,9 +66,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--tan-1);
+    background-color: var(--blue);
     color: var(--text-dark);
-    border: .1vmin solid var(--tan-3);
+    border: .1vmin solid var(--red);
     border-radius: 1vmin;
     padding: .6vmin;
     text-align: center;
@@ -77,8 +77,8 @@
 
   .form-container {
     padding: 3vmin;
-    background-color: var(--tan-1);
-    border: .1vmin solid var(--tan-3);
+    background-color: var(--blue);
+    border: .1vmin solid var(--red);
     border-radius: 1vmin;
   }
 
@@ -103,7 +103,7 @@
   input {
     padding: 1vmin;
     font-size: 2vmin;
-    border: .1vmin solid var(--tan-3);
+    border: .1vmin solid var(--red);
     border-radius: .5vmin;
     color: var(--text-dark);
     background-image: none !important; /* prevent lastpass */
@@ -123,7 +123,7 @@
     font-weight: bold;
     text-decoration: none;
     text-align: center;
-    border: .1vmin solid var(--tan-2);
+    border: .1vmin solid var(--light-blue);
     border-radius: .5vmin;
     outline: none;
     cursor: pointer;

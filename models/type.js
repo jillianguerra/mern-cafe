@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 require('./pokemon.js')
 
 const typeSchema = new Schema({
-  name: { type: String, required: true },
-  sortOrder: Number
+  name: { type: String, required: true, unique: true},
+  sortOrder: {type: Number, required: true, unique: true}
 }, {
   timestamps: true
 });

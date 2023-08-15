@@ -9,7 +9,7 @@ const pokemonSchema = require('./pokemonSchema');
 //     const allTypes = await Type.find({})
 //     console.log(allTypes)
 //     allTypes.forEach((type) => {
-//         if(type.name === this.type[0].name || this.type[1].name) {
+//         if(type.name === this.type.name || type.name === this.type2.name) {
 //             type.pokemon.addToSet(this)
 //         }
 //     })

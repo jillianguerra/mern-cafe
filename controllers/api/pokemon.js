@@ -3,39 +3,43 @@ const Type = require('../../models/type')
 
 module.exports = {
   index,
+  showTypes,
+  showByType,
   show
 };
 
 async function index(req, res) {
   try{
-    const data = await Pokemon.find({}).sort('name').populate('type').exec()
-    // const sortedPokemon = {}
-    // pokemon.forEach((poke) => {
-    //   poke.type.forEach((t)=> {
-    //     typeName = t.name
-    //     sortedPokemon.typeName ? sortedPokemon.typeName.push(poke) : sortedPokemon.typeName = [poke]
-    //   })
-    // })
-    // res.status(200).json(sortedPokemon)
-    data.sort((a, b) => a.type[0].sortOrder - b.type[0].sortOrder)
-    res.status(200).json(data)
-
-    // const items = await Pokemon.find({}).sort('name').populate('type').exec()
-    // const types = await Type.find({}).sort('sortOrder')
-    // // re-sort based upon the sortOrder of the categories
-    // items.type.sort((a, b) => a.sortOrder - b.sortOrder);
-    // items.sort((a, b) => a.type[0].sortOrder - b.type[0].sortOrder)
-    // res.status(200).json(items);
+    const data = await Pokemon.find({}).sort('name').populate('type', 'type2').exec()
+    res.status(200).json({pokemon: data})
   }catch(error){
-    res.status(400).json({ msg: error.message });
+    res.status(400).json({message: error.message})
   }
 }
-
+async function showTypes(req, res) {
+  try {
+    const types = await Type.find({})
+    res.status(200).json({types: types})
+  }catch(error){
+    res.status(400).json({message: error.message})
+  }
+}
+async function showByType(req, res) {
+  try{
+    const type = await Type.findOne({name: req.params.type})
+    const data = await Pokemon.find({type: type._id}).populate('type', 'type2').exec()
+    const data2 = await Pokemon.find({type2: type._id}).populate('type', 'type2').exec()
+    const pokemons = [...data, ...data2].sort((a, b) => a.name - b.name)
+    res.status(200).json(pokemons)
+  } catch(error){
+    res.status(400).json({ message: error.message})
+  }
+}
 async function show(req, res) {
   try{
-    const item = await Item.findById(req.params.id);
-    res.status(200).json(item);
-  }catch(e){
-    res.status(400).json({ msg: e.message });
-  }  
+    const pokemon = await Pokemon.findById(req.params.id);
+    res.status(200).json(pokemon);
+  }catch(error){
+    res.status(400).json({message: error.message})
+  } 
 }

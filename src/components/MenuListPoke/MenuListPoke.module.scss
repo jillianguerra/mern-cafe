@@ -7,7 +7,7 @@
     padding: 2vmin;
     color: var(--text-light);
     background-color: var(--white);
-    border: .1vmin solid var(--tan-3);
+    border: .1vmin solid var(--red);
     border-radius: 1vmin;
     font-size: 4vmin;
   }
@@ -16,8 +16,8 @@
     height: 8vw;
     width: 8vw;
     font-size: 4vw;
-    background-color: var(--tan-1);
-    border: .1vmin solid var(--tan-3);
+    background-color: var(--yellow);
+    border: .1vmin solid var(--blue);
     border-radius: 1vmin;
   }
   
@@ -35,5 +35,10 @@
   .MenuListPoke .name {
     font-size: 2vw;
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-dark);
+  }
+  .MenuListPoke .type {
+    font-size: 1.8vw;
+    text-align: center;
+    color: var(--text-light)
   }
