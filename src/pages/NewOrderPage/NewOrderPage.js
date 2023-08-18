@@ -37,7 +37,8 @@ export default function NewOrderPage({ user, setUser }) {
 
   /*-- Event Handlers --*/
   async function handleAddToOrder(pokemonId) {
-    const updatedCart = await ordersAPI.addItemToCart(pokemonId);
+    console.log(pokemonId)
+    const updatedCart = await ordersAPI.addPokemonToCart(pokemonId);
     setCart(updatedCart);
   }
 

@@ -13,7 +13,7 @@ export default function TypeListList({ types, activeType, getPokemons }) {
     </li>
   );
   return (
-    <ul className={styles.CategoryList}>
+    <ul className={styles.TypeList}>
       {typeList}
     </ul>
   );

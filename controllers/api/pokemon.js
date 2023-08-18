@@ -1,5 +1,6 @@
 const Pokemon = require('../../models/pokemon');
 const Type = require('../../models/type')
+const Review = require('../../models/review')
 
 module.exports = {
   index,
@@ -27,9 +28,9 @@ async function showTypes(req, res) {
 async function showByType(req, res) {
   try{
     const type = await Type.findOne({name: req.params.type})
-    const data = await Pokemon.find({type: type._id}).populate('type', 'type2').exec()
-    const data2 = await Pokemon.find({type2: type._id}).populate('type', 'type2').exec()
-    const pokemons = [...data, ...data2].sort((a, b) => a.name - b.name)
+    const data = await Pokemon.find({type: type._id}).populate('type type2').exec()
+    const data2 = await Pokemon.find({type2: type._id}).populate('type type2').exec()
+    const pokemons = [...data, ...data2]
     res.status(200).json(pokemons)
   } catch(error){
     res.status(400).json({ message: error.message})

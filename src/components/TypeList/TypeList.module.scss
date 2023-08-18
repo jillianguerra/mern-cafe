@@ -1,11 +1,12 @@
 .TypeList {
-    color: var(--text-light);
-    list-style: none;
+    color: var(--black);
     padding: 0;
     font-size: 1.7vw;
+    list-style: none;
     }
     
     .TypeList li {
+    
     padding: .6vmin;
     text-align: center;
     border-radius: .5vmin;
@@ -14,7 +15,7 @@
     
     .TypeList li:hover:not(.active) {
     cursor: pointer;
-    background-color: var(--orange);
+    background-color: var(--blue);
     color: var(--white);
     }
     

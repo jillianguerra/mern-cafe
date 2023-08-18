@@ -49,25 +49,25 @@ orderSchema.statics.getCart = function(userId) {
   );
 };
 
-orderSchema.methods.addItemToCart = async function(itemId) {
+orderSchema.methods.addPokemonToCart = async function(pokemonId) {
   const cart = this;
   // Check if item already in cart
-  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.pokemon._id.equals(pokemonId));
   if (lineItem) {
     lineItem.qty += 1;
   } else {
-    const item = await mongoose.model('Item').findById(itemId);
-    cart.lineItems.push({ item });
+    const pokemon = await mongoose.model('Pokemon').findById(pokemonId);
+    cart.lineItems.push({ pokemon });
   }
   return cart.save();
 };
 
 // Instance method to set an item's qty in the cart (will add item if does not exist)
-orderSchema.methods.setItemQty = function(itemId, newQty) {
+orderSchema.methods.setItemQty = function(pokemonId, newQty) {
   // this keyword is bound to the cart (order doc)
   const cart = this;
   // Find the line item in the cart for the menu item
-  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.pokemon._id.equals(pokemonId));
   if (lineItem && newQty <= 0) {
     // Calling remove, removes itself from the cart.lineItems array
     lineItem.deleteOne();

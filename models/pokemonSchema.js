@@ -7,7 +7,8 @@ const pokemonSchema = new Schema({
   img: String,
   type: { type: Schema.Types.ObjectId, ref: 'Type' },
   type2: { type: Schema.Types.ObjectId, ref: 'Type' },
-  price: { type: Number, required: true, default: 0 }
+  price: { type: Number, required: true, default: 0 },
+  dex: String
 }, {
   timestamps: true
 });

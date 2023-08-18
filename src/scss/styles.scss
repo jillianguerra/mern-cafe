@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&family=Work+Sans:wght@500&display=swap');
+
 :root {
     --white: #FFFFFF;
     --blue: #1847D7;
@@ -5,8 +7,8 @@
     --red: #E3350D;
     --yellow: #E6BC2F;
     --orange: #EE6B2F;
-    --text-light: #919191;
-    --text-dark: #000000;
+    --gray: #919191;
+    --black: #000000;
   }
 
   *, *:before, *:after {
@@ -67,7 +69,7 @@
     justify-content: space-around;
     align-items: center;
     background-color: var(--blue);
-    color: var(--text-dark);
+    color: var(--black);
     border: .1vmin solid var(--red);
     border-radius: 1vmin;
     padding: .6vmin;
@@ -105,25 +107,25 @@
     font-size: 2vmin;
     border: .1vmin solid var(--red);
     border-radius: .5vmin;
-    color: var(--text-dark);
+    color: var(--black);
     background-image: none !important; /* prevent lastpass */
     outline: none;
   }
 
   input:focus {
-    border-color: var(--orange);
+    border-color: var(--blue);
   }
 
   button, a.button {
     margin: 1vmin;
     padding: 1vmin;
     color: var(--white);
-    background-color: var(--orange);
+    background-color: var(--light-blue);
     font-size: 2vmin;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
-    border: .1vmin solid var(--light-blue);
+    border: .1vmin solid var(--blue);
     border-radius: .5vmin;
     outline: none;
     cursor: pointer;
