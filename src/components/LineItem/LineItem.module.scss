@@ -30,3 +30,12 @@
     .LineItem button {
     margin: 0;
     }
+
+    .LineItem .img {
+        height: 8vw;
+        width: 8vw;
+        font-size: 4vw;
+        background-color: var(--light-blue);
+        border: .1vmin solid var(--blue);
+        border-radius: 1vmin;
+      }

@@ -1,4 +1,4 @@
-.MenuListPoke {
+.OnePokemon {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -12,37 +12,28 @@
     font-size: 4vmin;
   }
   
-  .MenuListPoke .img {
-    height: 8vw;
-    width: 8vw;
+  .OnePokemon .img {
+    height: 10vw;
+    width: 10vw;
     font-size: 4vw;
-    background-color: var(--yellow);
+    background-color: var(--light-blue);
     border: .1vmin solid var(--blue);
     border-radius: 1vmin;
   }
-  .MenuListPoke .img:hover {
-    background-color: --light-blue;
-    cursor: pointer;
-  }
   
-  .MenuListPoke .buy {
+  .OnePokemon .buy {
     display: flex;
     flex-direction: column;
   }
   
-  .MenuListPoke .buy span {
-    font-size: 1.7vw;
-    text-align: center;
-    color: var(--text-light);
-  }
-  
-  .MenuListPoke .name {
+  .OnePokemon .buy span {
     font-size: 2vw;
     text-align: center;
     color: var(--text-light);
   }
-  .MenuListPoke .name:hover {
-    font-size: 2.3vw;
-    color: var(--black);
-    cursor: pointer;
+  
+  .OnePokemon .name {
+    font-size: 4vw;
+    text-align: center;
+    color: var(--text-light);
   }

@@ -38,7 +38,7 @@ async function showByType(req, res) {
 }
 async function show(req, res) {
   try{
-    const pokemon = await Pokemon.findById(req.params.id);
+    const pokemon = await Pokemon.findById(req.params.id).populate('type type2').exec()
     res.status(200).json(pokemon);
   }catch(error){
     res.status(400).json({message: error.message})

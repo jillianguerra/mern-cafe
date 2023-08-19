@@ -11,8 +11,18 @@ module.exports = {
 
 async function showAll(req, res) {
   try{
-    const data = await Review.find({pokemon: req.params.id}).exec()
-    res.status(200).json({reviews: data})
+    const data = await Review.find({pokemon: req.params.id}).populate('user').exec()
+    const math = {
+      sum: 0,
+      count: 0,
+      mean: 1
+    }
+    data.forEach((one) => {
+      math.sum =+ one.rating
+      math.count ++
+    })
+      math.mean = math.sum / math.count
+    res.status(200).json({mean: math.mean, reviews: data})
   }catch(error){
     res.status(400).json({message: error.message})
   }

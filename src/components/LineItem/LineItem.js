@@ -3,7 +3,7 @@ import styles from './LineItem.module.scss';
 export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
 return (
   <div className={styles.LineItem}>
-    <img className="flex-ctr-ctr" src={lineItem.pokemon.img}/>
+    <img className={styles.img + ' ' + 'flex-ctr-ctr'} src={lineItem.pokemon.img}/>
     <div className="flex-ctr-ctr flex-col">
       <div className="align-ctr">{lineItem.pokemon.name}</div>
       <div>{lineItem.pokemon.price.toFixed(2)}</div>
