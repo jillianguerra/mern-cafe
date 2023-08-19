@@ -60,10 +60,9 @@ export default function NewOrderPage({ user, setUser }) {
     navigate('/orders');
   }
 
-  async function handleSelectPokemon(id){
-    const pokeData = await pokemonAPI.getById(id)
-    const reviewData = await pokemonAPI.getReviews(id)
-    setActivePoke(pokeData)
+  async function handleSelectPokemon(pokemon){
+    const reviewData = await pokemonAPI.getReviews(pokemon._id)
+    setActivePoke(pokemon)
     setReviews(reviewData)
   }
   async function addReview(id, content){
@@ -103,7 +102,7 @@ export default function NewOrderPage({ user, setUser }) {
 
   return (
     <main className={styles.NewOrderPage}>
-      <aside>
+      <nav>
         <Logo />
         <TypeList
           types={typesRef.current}
@@ -111,15 +110,21 @@ export default function NewOrderPage({ user, setUser }) {
           getPokemons={getPokemons}
           activeType={activeType}
         />
-        <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-        <UserLogOut user={user} setUser={setUser} />
+        <div>
+          <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
+          <UserLogOut user={user} setUser={setUser} />
+        </div>
+      </nav>
+      <main>
+        <MenuList
+          pokemons={pokemons}
+          handleAddToOrder={handleAddToOrder}
+          handleSelectPokemon={handleSelectPokemon}
+        />
+      </main>
+      <aside>
+        {activePoke ? showPokemon() : showOrder()}
       </aside>
-      <MenuList
-        pokemons={pokemons}
-        handleAddToOrder={handleAddToOrder}
-        handleSelectPokemon={handleSelectPokemon}
-      />
-      {activePoke ? showPokemon() : showOrder()}
     </main>
   )
 }

@@ -4,17 +4,15 @@ export default function MenuListPoke({ pokemon, handleAddToOrder, handleSelectPo
   return (
     <div className={styles.MenuListPoke}>
       <img src={pokemon.img} 
-        className={styles.img + ' ' + 'flex-ctr-ctr'} 
-        onClick={() => handleSelectPokemon(pokemon._id)}
-      />
-      <div className={styles.name}
-        onClick={() => handleSelectPokemon(pokemon._id)}>
+        className={styles.img + ' ' + 'flex-ctr-ctr'}
+        onClick={() => handleSelectPokemon(pokemon._id)}/>
+      <div className={styles.name} onClick={() => handleSelectPokemon(pokemon)}>
         {pokemon.name}
       </div>
 
       <div className={styles.buy}>
         <span>${pokemon.price.toFixed(2)}</span>
-        <button className="btn-sm" onClick={() => handleAddToOrder(pokemon._id)}>
+        <button className="btn-sm" onClick={() => handleAddToOrder(pokemon)}>
           ADOPT
         </button>
       </div>

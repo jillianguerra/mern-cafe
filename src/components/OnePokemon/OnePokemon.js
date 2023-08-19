@@ -1,7 +1,6 @@
 import styles from './OnePokemon.module.scss';
 
 export default async function OnePokemon({ pokemon, handleAddToOrder, setActivePoke }) {
-    console.log(pokemon)
     return (
     <div className={styles.OnePokemon}>
         <button onClick={() => setActivePoke('')}>← BACK</button>
