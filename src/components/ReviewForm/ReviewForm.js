@@ -1,15 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Stars from '../Stars/Stars'
 import styles from './ReviewForm.module.scss'
 
-export default function ReviewForm({ pokemonId, addReview }) {
+export default function ReviewForm({ pokemonId, addReview, user }) {
     const [formData, setFormData] = useState({
+        user: user._id,
         body: '',
         rating: 0,
         pokemon: pokemonId
     })
     const [error, setError] = useState('')
     const [complete, setComplete] = useState(false)
+    useEffect(function () {
+        const clearForm = (userId, pokemonId) => {
+            const newFormData = {
+                user: userId,
+                body: '',
+                rating: 0,
+                pokemon: pokemonId
+            }
+            setFormData(newFormData)
+            setComplete(false)
+        }
+        clearForm(pokemonId, user._id)
+    }, [pokemonId])
     const handleSubmit = (e) => {
         try {
             e.preventDefault()
@@ -23,30 +37,31 @@ export default function ReviewForm({ pokemonId, addReview }) {
     }
     const handleChange = (e, idx) => {
         idx ?
-        setFormData({...formData, rating: idx}) :
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+            setFormData({ ...formData, rating: idx }) :
+            setFormData({ ...formData, [e.target.name]: e.target.value });
     }
+
     const completed = () => (
         <div className={styles.ReviewForm}>
             <h3 className={styles.completed}>Thanks for the review!</h3>
         </div>
     )
     const showForm = () => (
-            <form className={styles.ReviewForm} onSubmit={(e) => handleSubmit(e)}>
-                <Stars
-                    formData={formData}
-                    handleChange={handleChange}
-                />
-                <label className={styles.label}>Tell us your thoughts: </label>
-                <input
-                    name="body"
-                    value={formData.body}
-                    onChange={(e) => handleChange(e)}
-                    className={styles.input}
-                />
-                <input className="button" type="submit" value="Submit" />
-                <p className="error-message">&nbsp;{error}</p>
-            </form>
+        <form className={styles.ReviewForm} onSubmit={(e) => handleSubmit(e)}>
+            <label className={styles.label}>Tell us your thoughts: </label>
+            <Stars
+                formData={formData}
+                handleChange={handleChange}
+            />
+            <input
+                name="body"
+                value={formData.body}
+                onChange={(e) => handleChange(e)}
+                className={styles.input}
+            />
+            <input className="button" type="submit" value="Submit" />
+            <p className="error-message">&nbsp;{error}</p>
+        </form>
     )
     return complete ? completed() : showForm()
 }

@@ -21,12 +21,6 @@ export function getReviews(id){
 export function addReview(id, content){
   return sendRequest(`${BASE_URL}/${id}/reviews`, `POST`, content)
 }
-export function changeReview(id, content){
-  return sendRequest(`${BASE_URL}/${id}/reviews`, `PUT`, content)
-}
 export function deleteReview(id){
-  return sendRequest(`${BASE_URL}/${id}/reviews`, `DELETE`, content)
-}
-export function findReview(id){
-  return sendRequest(`${BASE_URL}/${id}/reviews/one`)
+  return sendRequest(`${BASE_URL}/${id}/reviews`, `DELETE`)
 }

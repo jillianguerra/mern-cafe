@@ -6,10 +6,13 @@
     background-color: var(--blue);
     border-radius: 2vmin;
   }
-  
+  .AuthPage .form {
+    background-color: white;
+    border: .5vmin solid var(--yellow);
+  }
   .AuthPage h3 {
     margin-top: 4vmin;
     text-align: center;
-    color: var(--text-light);
+    color: var(--white);
     cursor: pointer;
   }

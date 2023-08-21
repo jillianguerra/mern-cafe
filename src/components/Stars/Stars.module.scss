@@ -1,12 +1,12 @@
-.star-rating button {
+.star-rating span {
     background-color: transparent;
     border: none;
     outline: none;
     cursor: pointer;
   }
   .star-rating .on {
-    color: #000;
+    color: var(--yellow);
   }
   .star-rating .off {
-    color: #ccc;
+    color: var(--text-light);
   }

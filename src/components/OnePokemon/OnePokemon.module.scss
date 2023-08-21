@@ -1,9 +1,13 @@
 .OnePokemon {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3vmin;
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr);
+    grid-template-rows: 0.5fr 3fr 1fr 0.5fr;
+    grid-template-areas: 
+    "back . . ."
+    "img img aside aside"
+    "footer footer footer footer"
+    " . . . buy";
     padding: 2vmin;
     color: var(--text-light);
     background-color: var(--white);
@@ -11,21 +15,33 @@
     border-radius: 1vmin;
     font-size: 4vmin;
   }
-  
+  .OnePokemon aside {
+    grid-area: aside;
+    align-self: center;
+  }
+  .OnePokemon footer {
+    grid-area: footer;
+    font-size: 2vw;
+  }
   .OnePokemon .img {
-    height: 10vw;
-    width: 10vw;
+    grid-area: img;
+    height: 20vw;
+    width: 20vw;
     font-size: 4vw;
-    background-color: var(--light-blue);
-    border: .1vmin solid var(--blue);
+    background-color: var(--yellow);
+    border: .5vmin solid var(--blue);
     border-radius: 1vmin;
   }
   
   .OnePokemon .buy {
+    grid-area: buy;
     display: flex;
     flex-direction: column;
   }
-  
+  .OnePokemon .back-btn {
+    grid-area: back;
+    padding: 3px;
+  }
   .OnePokemon .buy span {
     font-size: 2vw;
     text-align: center;
@@ -36,4 +52,9 @@
     font-size: 4vw;
     text-align: center;
     color: var(--text-light);
+  }
+  .OnePokemon .type {
+    font-size: 2vw;
+    text-align: center;
+    color: var(--text-light)
   }

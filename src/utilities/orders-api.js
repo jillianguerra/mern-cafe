@@ -10,7 +10,7 @@ export function getCart() {
 // Add an item to the cart
 export function addPokemonToCart(pokemonId) {
   // Just send itemId for best security (no pricing)
-  return sendRequest(`${BASE_URL}/cart/pokemon/${pokemonId}`, 'POST');
+  return sendRequest(`${BASE_URL}/cart/pokemon/${pokemonId}`, 'POST', pokemonId);
 }
 
 // Update the item's qty in the cart

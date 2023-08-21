@@ -29,9 +29,15 @@ async function showAll(req, res) {
 }
 async function createReview(req, res) {
   try {
-    req.body.pokemon = await Pokemon.findOne({_id: req.params.id})
+    req.body.pokemon = req.params.id
     req.body.user = req.user
-    const review = new Review(req.body)
+    let review = await Review.findOne({user: req.body.user, pokemon: req.body.pokemon})
+    if(review){
+      review.body = req.body.body
+      review.rating = req.body.rating
+    } else {
+      review = new Review(req.body)
+    }
     await review.save()
     res.status(200).json(review)
   }catch(error){

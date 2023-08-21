@@ -9,10 +9,7 @@ router.get('/type/:type', pokemonCtrl.showByType)
 router.get('/:id', pokemonCtrl.show);
 
 router.post('/:id/reviews', reviewCtrl.createReview)
-router.put('/:id/reviews', reviewCtrl.updateReview)
 router.delete('/:id/reviews', reviewCtrl.deleteReview)
 router.get('/:id/reviews', reviewCtrl.showAll)
-router.get('/:id/reviews/one', reviewCtrl.showOne)
-
 
 module.exports = router;

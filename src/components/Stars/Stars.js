@@ -9,7 +9,6 @@ export default function Star({ formData, handleChange }) {
           idx += 1;
           return (
             <button
-              type="button"
               key={`star-idx-${idx}`}
               name="rating"
               className={idx <= (hover || formData.rating) ? "on" : "off"}
@@ -17,7 +16,7 @@ export default function Star({ formData, handleChange }) {
               onMouseEnter={() => setHover(idx)}
               onMouseLeave={() => setHover(formData.rating)}
             >
-              <span className="star">&#9733;</span>
+              &#9733;
             </button>
           );
         })}

@@ -43,7 +43,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
               </section>
             </>
             :
-            <div className={styles.lonely}>Lonely?</div>
+            <div className={styles.lonely}>Gotta Catch 'em All!</div>
           }
         </div>
       </div>
