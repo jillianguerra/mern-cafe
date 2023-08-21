@@ -2,7 +2,12 @@
     background-color: var(--light-blue);
     border: .5vmin solid var(--blue);
     border-radius: 2vmin;
-    margin: 3vmin 0;
     padding: 3vmin;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    max-height: calc(100vh - 18vmin);
+    }
+    .MenuList::-webkit-scrollbar {
+        display: none;
     }

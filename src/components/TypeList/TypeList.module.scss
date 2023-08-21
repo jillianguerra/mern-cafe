@@ -1,7 +1,7 @@
 .TypeList {
-    color: var(--black);
+    color: var(--gray);
     padding: 0;
-    font-size: 1.7vw;
+    font-size: 1.3vw;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
@@ -12,17 +12,17 @@
     padding: .6vmin;
     text-align: center;
     border-radius: .5vmin;
-    margin-bottom: .5vmin;
+    margin-bottom: .2vmin;
     }
     
     .TypeList li:hover:not(.active) {
     cursor: pointer;
-    background-color: var(--blue);
+    background-color: var(--light-blue);
     color: var(--white);
     }
     
     .TypeList li.active {
-    color: var(--text-ligh);
+    color: var(--white);
     background-color: var(--light-blue);
-    border: .3vmin solid var(--red);
+    border: .3vmin solid var(--blue);
     }

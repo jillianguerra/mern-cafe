@@ -40,6 +40,7 @@ export default function NewOrderPage({ user, setUser }) {
   async function getPokemons(type) {
     const data = await pokemonAPI.getByType(type)
     setPokemons(data)
+    setActiveType(type)
   }
   /*-- Event Handlers --*/
   async function handleAddToOrder(pokemonId) {

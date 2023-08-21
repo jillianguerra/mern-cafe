@@ -14,8 +14,14 @@
   .OrderDetail .lineItemContainer {
     margin-top: 3vmin;
     justify-content: flex-start;
-    height: calc(100vh - 18vmin);
     width: 100%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    max-height: calc(100vh - 18vmin);
+  }
+  .OrderDetail .lineItemContainer::-webkit-scrollbar {
+    display: none;
   }
   
   .OrderDetail .total {

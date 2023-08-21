@@ -2,17 +2,15 @@
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.5fr, 3fr, 2fr;
+    grid-template-rows: 0.5fr, 3fr;
     background-color: var(--white);
     border-radius: 2vmin;
     grid-template-areas:
     "nav nav"
-    "main aside"
     "main aside";
-    gap: 10px;
-    padding: 10px;
+    gap: 5px;
+    padding: 5px;
   }
-  
   .NewOrderPage nav {
     grid-area: nav;
     display: flex;
@@ -26,7 +24,21 @@
   }
   .NewOrderPage main {
     grid-area: main;
+    max-height: calc(100vh - 18vmin);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .NewOrderPage main::-webkit-scrollbar {
+    display: none;
   }
   .NewOrderPage aside {
     grid-area: aside;
+    max-height: calc(100vh - 18vmin);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .NewOrderPage aside::-webkit-scrollbar {
+    display: none;
   }
