@@ -1,7 +1,7 @@
 .ReviewForm {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-rows: 0.5fr 3fr 0.5fr;
     grid-template-areas: 
     "label label rating"
     "input input input"
@@ -9,9 +9,12 @@
 }
 .ReviewForm .label {
     grid-area: label;
+    text-align: center;
+    font-size: 2.5vmin;
 }
 .ReviewForm .rating {
     grid-area: rating;
+    place-self: center;
 }
 .ReviewForm .input {
     grid-area: input;

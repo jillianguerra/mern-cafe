@@ -4,11 +4,15 @@
     border: .2vmin solid var(--blue);
     padding: 1vh;
     margin: 1vh;
-    color: var(--gray)
+    color: var(--gray);
+    align-items: flex-start;
 }
 .Review .name {
     font-size: 3vh;
     color: var(--black);
+}
+.Review button {
+  align-self: center;
 }
 .Review .Star span {
     background-color: transparent;

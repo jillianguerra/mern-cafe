@@ -2,13 +2,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--yellow);
+    background-color: var(--light-blue);
     border: .5vmin solid var(--blue);
     border-radius: 2vmin;
     margin: 3vmin 0;
     padding: 3vmin;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: calc(100vh - 18vmin)
     }
+    .OrderList::-webkit-scrollbar {
+        display: none;
+      }
     
     .OrderList .noOrders {
     color: var(--gray);

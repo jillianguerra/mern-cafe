@@ -693,13 +693,13 @@ const Pokemon = require('../models/pokemon');
     {
       name: 'Rhyhorn',
       img: 'https://i.imgur.com/gFr1Esa.png',
-      type: types[8], type2: types[12],
+      type: types[8], type2: types[12], price: 5000,
       dex: `Its massive bones are 1000 times harder than human bones. It can easily knock a trailer flying.`
     },
     {
       name: 'Rhydon',
       img: 'https://i.imgur.com/tgrLTtP.png',
-      type: types[8], type2: types[12],
+      type: types[8], type2: types[12], price: 9000,
       dex: `Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees.`
     },
     {

@@ -19,6 +19,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     max-height: calc(100vh - 18vmin);
+    min-height: calc(100vh - 70vmin)
   }
   .OrderDetail .lineItemContainer::-webkit-scrollbar {
     display: none;
@@ -48,4 +49,5 @@
   
   .OrderDetail .lonely {
     font-size: 2vmin;
+    align-self: center;
   }

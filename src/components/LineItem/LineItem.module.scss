@@ -1,41 +1,47 @@
 .LineItem {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 3vw 15.35vw 5.75vw 5.25vw;
-    padding: 1vmin 0;
-    color: var(--gray);
-    background-color: var(--white);
-    border-top: .3vmin solid var(--light-blue);
-    font-size: 1.5vw;
-    }
-    
-    .LineItem:last-child {
-    border-bottom: .3vmin solid var(--blue);
-    }
-    
-    .LineItem .qty {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.3vw;
-    }
-    
-    .LineItem .extPrice {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-size: 1.3vw;
-    }
-    
-    .LineItem button {
-    margin: 0;
-    }
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1vmin 0;
+  color: var(--gray);
+  border-top: .3vmin solid var(--light-blue);
+  font-size: 1.5vw;
+  place-items: center;
+}
 
-    .LineItem .img {
-        height: 8vw;
-        width: 8vw;
-        font-size: 4vw;
-        background-color: var(--light-blue);
-        border: .3vmin solid var(--blue);
-        border-radius: 1vmin;
-      }
+.LineItem:last-child {
+  border-bottom: .3vmin solid var(--blue);
+}
+
+.LineItem .qty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3vw;
+}
+
+.LineItem .qty span {
+  padding: 1vmin;
+}
+
+.LineItem .extPrice {
+  justify-self: end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.3vw;
+}
+
+.LineItem button {
+  margin: 0;
+}
+
+.LineItem .img {
+  justify-self: start;
+  height: 8vw;
+  width: 8vw;
+  font-size: 4vw;
+  background-color: var(--yellow);
+  border: .3vmin solid var(--blue);
+  border-radius: 1vmin;
+}
