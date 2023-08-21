@@ -5,12 +5,12 @@
     padding: 1vmin 0;
     color: var(--gray);
     background-color: var(--white);
-    border-top: .1vmin solid var(--light-blue);
+    border-top: .3vmin solid var(--light-blue);
     font-size: 1.5vw;
     }
     
     .LineItem:last-child {
-    border-bottom: .1vmin solid var(--blue);
+    border-bottom: .3vmin solid var(--blue);
     }
     
     .LineItem .qty {
@@ -36,6 +36,6 @@
         width: 8vw;
         font-size: 4vw;
         background-color: var(--light-blue);
-        border: .1vmin solid var(--blue);
+        border: .3vmin solid var(--blue);
         border-radius: 1vmin;
       }
