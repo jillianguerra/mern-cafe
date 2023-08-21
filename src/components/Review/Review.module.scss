@@ -1,0 +1,24 @@
+.Review {
+    display: flex;
+    flex-direction: column;
+    border: .2vmin solid var(--blue);
+    padding: 1vh;
+    margin: 1vh;
+    color: var(--gray)
+}
+.Review .name {
+    font-size: 3vh;
+    color: var(--black);
+}
+.Review .Star span {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 3vh;
+  }
+.Review  .Star .on {
+    color: var(--yellow);
+  }
+.Review  .Star .off {
+    color: var(--gray);
+  }

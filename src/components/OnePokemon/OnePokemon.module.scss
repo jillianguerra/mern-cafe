@@ -9,7 +9,7 @@
     "footer footer footer footer"
     " . . . buy";
     padding: 2vmin;
-    color: var(--text-light);
+    color: var(--gray);
     background-color: var(--white);
     border: .1vmin solid var(--red);
     border-radius: 1vmin;
@@ -45,16 +45,16 @@
   .OnePokemon .buy span {
     font-size: 2vw;
     text-align: center;
-    color: var(--text-light);
+    color: var(--gray);
   }
   
   .OnePokemon .name {
     font-size: 4vw;
     text-align: center;
-    color: var(--text-light);
+    color: var(--gray);
   }
   .OnePokemon .type {
     font-size: 2vw;
     text-align: center;
-    color: var(--text-light)
+    color: var(--gray)
   }

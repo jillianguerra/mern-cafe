@@ -1,13 +1,12 @@
-import {useEffect} from 'react'
 import Review from '../Review/Review'
-import styles from './ReviewList.module.scss';
+import StarsStatic from '../StarsStatic/StarsStatic'
+import styles from './ReviewList.module.scss'
 
 export default function ReviewList({ reviewData, removeReview, user }) {
-    console.log(reviewData)
     const showReviews = () => (
         <main className={styles.ReviewList}>
-            <h3>{reviewData.count} reviews!</h3>
-            <h3>Average: {reviewData.mean}</h3>
+            <div>{reviewData.count === 1 ? `1 review!` : `${reviewData.count} reviews!`}</div>
+            <StarsStatic rating={reviewData.mean} /> 
             {reviewData.reviews.map(review =>
                 <Review
                     key={review._id}

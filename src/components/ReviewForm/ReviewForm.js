@@ -42,24 +42,23 @@ export default function ReviewForm({ pokemonId, addReview, user }) {
     }
 
     const completed = () => (
-        <div className={styles.ReviewForm}>
             <h3 className={styles.completed}>Thanks for the review!</h3>
-        </div>
     )
     const showForm = () => (
         <form className={styles.ReviewForm} onSubmit={(e) => handleSubmit(e)}>
             <label className={styles.label}>Tell us your thoughts: </label>
             <Stars
+                className={styles.rating}
                 formData={formData}
                 handleChange={handleChange}
             />
-            <input
+            <textarea
                 name="body"
                 value={formData.body}
                 onChange={(e) => handleChange(e)}
                 className={styles.input}
             />
-            <input className="button" type="submit" value="Submit" />
+            <input className={styles.submit} type="submit" value="Submit" />
             <p className="error-message">&nbsp;{error}</p>
         </form>
     )

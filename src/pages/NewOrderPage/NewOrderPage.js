@@ -32,7 +32,6 @@ export default function NewOrderPage({ user, setUser }) {
     getTypes()
     async function getCart() {
       const cart = await ordersAPI.getCart()
-      console.log(cart)
       setCart(cart)
     }
     getCart()
@@ -44,9 +43,7 @@ export default function NewOrderPage({ user, setUser }) {
   }
   /*-- Event Handlers --*/
   async function handleAddToOrder(pokemonId) {
-    console.log(pokemonId)
     const updatedCart = await ordersAPI.addPokemonToCart(pokemonId);
-    console.log(updatedCart)
     setCart(updatedCart);
   }
 
@@ -102,10 +99,7 @@ export default function NewOrderPage({ user, setUser }) {
           getPokemons={getPokemons}
           activeType={activeType}
         />
-        <div>
-          <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-          <UserLogOut user={user} setUser={setUser} />
-        </div>
+        <UserLogOut user={user} setUser={setUser} />
       </nav>
       <main>
         <MenuList
@@ -121,6 +115,7 @@ export default function NewOrderPage({ user, setUser }) {
           handleChangeQty={handleChangeQty}
           handleCheckout={handleCheckout}
         />
+        <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
       </aside>
     </main>
   )

@@ -5,7 +5,7 @@
     align-items: center;
     margin-bottom: 3vmin;
     padding: 2vmin;
-    color: var(--text-light);
+    color: var(--gray);
     background-color: var(--white);
     border: .5vmin solid var(--red);
     border-radius: 1vmin;
@@ -33,7 +33,7 @@
   .MenuListPoke .buy span {
     font-size: 1.7vw;
     text-align: center;
-    color: var(--text-light);
+    color: var(--gray);
   }
   .MenuListPoke button:hover {
     background-color: red;
@@ -43,7 +43,7 @@
   .MenuListPoke .name {
     font-size: 2vw;
     text-align: center;
-    color: var(--text-light);
+    color: var(--gray);
   }
   .MenuListPoke .name:hover {
     cursor: pointer;

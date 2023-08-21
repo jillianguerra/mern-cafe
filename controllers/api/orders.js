@@ -43,7 +43,6 @@ async function setItemQtyInCart(req, res) {
 // Update the cart's isPaid property to true
 async function checkout(req, res) {
   try{
-    console.log("checkout time")
     const cart = await Order.getCart(req.user._id);
     cart.isPaid = true;
     await cart.save();

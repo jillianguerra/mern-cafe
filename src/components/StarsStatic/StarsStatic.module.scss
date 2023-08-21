@@ -1,13 +1,12 @@
-.Star span {
+.StarStatic span {
     background-color: transparent;
     border: none;
     outline: none;
-    cursor: pointer;
-    font-size: 4vh;
+    font-size: 3vh;
   }
-  .Star .on {
+  .StarStatic .on {
     color: var(--yellow);
   }
-  .Star .off {
+  .StarStatic .off {
     color: var(--gray);
   }

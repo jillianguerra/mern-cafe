@@ -1,23 +1,24 @@
 import { useState } from 'react'
+import styles from './Stars.module.scss'
 
 export default function Star({ formData, handleChange }) {
     // const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
     return (
-      <div className="star-rating">
+      <div className={styles.Star}>
         {[...Array(5)].map((star, idx) => {
           idx += 1;
           return (
-            <button
+            <span
               key={`star-idx-${idx}`}
               name="rating"
-              className={idx <= (hover || formData.rating) ? "on" : "off"}
+              className={idx <= (hover || formData.rating) ? `${styles.on}` : `${styles.off}`}
               onClick={(e) => handleChange(e, idx)}
-              onMouseEnter={() => setHover(idx)}
+              onMouseOver={() => setHover(idx)}
               onMouseLeave={() => setHover(formData.rating)}
             >
               &#9733;
-            </button>
+            </span>
           );
         })}
       </div>
