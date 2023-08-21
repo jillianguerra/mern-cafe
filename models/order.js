@@ -59,7 +59,8 @@ orderSchema.methods.addPokemonToCart = async function(pokemonId) {
     const pokemon = await mongoose.model('Pokemon').findById(pokemonId);
     cart.lineItems.push({ pokemon });
   }
-  return cart.save();
+  cart.save()
+  return cart
 };
 
 // Instance method to set an item's qty in the cart (will add item if does not exist)

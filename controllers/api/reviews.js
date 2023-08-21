@@ -12,17 +12,17 @@ module.exports = {
 async function showAll(req, res) {
   try{
     const data = await Review.find({pokemon: req.params.id}).populate('user').exec()
-    const math = {
-      sum: 0,
-      count: 0,
-      mean: 1
-    }
+    let sum = 0
+    let count = 0
+    let mean = 0
     data.forEach((one) => {
-      math.sum =+ one.rating
-      math.count ++
+      sum = sum + one.rating
+      count ++
     })
-      math.mean = math.sum / math.count
-    res.status(200).json({mean: math.mean, reviews: data})
+    if(count){
+      mean = sum / count
+    }
+    res.status(200).json({mean: mean, count: count, reviews: data})
   }catch(error){
     res.status(400).json({message: error.message})
   }

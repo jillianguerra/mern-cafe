@@ -37,13 +37,6 @@ export default function NewOrderPage({ user, setUser }) {
     }
     getCart()
   }, []);
-  // useEffect(function () {
-  //   async function getCart() {
-  //     const cart = await ordersAPI.getCart()
-  //     setCart(cart)
-  //   }
-  //   getCart()
-  // }, [activePoke])
 
   async function getPokemons(type) {
     const data = await pokemonAPI.getByType(type)
@@ -53,6 +46,7 @@ export default function NewOrderPage({ user, setUser }) {
   async function handleAddToOrder(pokemonId) {
     console.log(pokemonId)
     const updatedCart = await ordersAPI.addPokemonToCart(pokemonId);
+    console.log(updatedCart)
     setCart(updatedCart);
   }
 
